@@ -1,0 +1,25 @@
+﻿@model List<Attendance.Models.AttendanceRecord>
+
+<h2>AttendanceRecord</h2>
+<a href="/AttendanceRecord/Create">Add Subject</a>
+<a href="/AttendanceRecord/ViewList">ViewList</a>
+<a href="/AttendanceRecord/Filter">Filter</a>
+
+@foreach (var s in Model)
+{
+    <p>
+        <strong>ID:</strong>@s.AttendanceId
+    </p>
+    <p>
+        <strong>Date:</strong>@s.Date
+    </p>
+
+    
+    <a href="/AttendanceRecord/Edit/@s.AttendanceId">Edit</a>
+    <a href="/AttendanceRecord/Delete/@s.AttendanceId">Delete </a>
+
+
+    <br />
+    <hr />
+
+}

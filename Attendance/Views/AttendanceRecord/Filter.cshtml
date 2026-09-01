@@ -1,0 +1,70 @@
+﻿@model Attendance.Models.AttendanceVm
+
+<h2>Filter AttendanceRecord</h2>
+
+
+
+
+<form action="/AttendanceRecord/Filter" method="post">
+    
+
+    <p>
+        <label>StudentName:</label>
+        <select asp-for="StudentId">
+            <option value="">Select-Student</option>
+
+            @foreach (var s in Model.Student)
+            {
+                <option value="@s.StudentId">@s.Name</option>
+
+            }
+        </select>
+    </p>
+
+    <p>
+        <label>SubjectName:</label>
+        <select asp-for="SubjectId">
+            <option value="">Select-Subject</option>
+
+            @foreach (var s in Model.Subject)
+            {
+                <option value="@s.SubjectId">@s.Name</option>
+
+            }
+        </select>
+    </p>
+
+    
+    <button type="submit">Filter</button>
+
+
+
+</form>
+
+
+<br />
+
+@foreach (var s in Model.attendanceRecords)
+{
+    <p>
+        <strong>ID:</strong>@s.AttendanceId
+    </p>
+    <p>
+        <strong>Date:</strong>@s.Date
+    </p>
+
+    <p>
+        <strong>StudentName:</strong>@s.Student.Name
+    </p>
+    <p>
+        <strong>SubjectName:</strong>@s.Subject.Name
+    </p>
+
+
+
+    <br />
+    <hr />
+
+}
+<br/>
+<a href="/AttendanceRecord/Index">Back</a>
